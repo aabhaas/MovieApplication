@@ -1,0 +1,36 @@
+
+    <div class= "container">
+        <div class="row">
+               
+            
+<div class= "col-lg-4" *ngFor='let fav of favMovie'>
+    <div class= "card">  
+     
+           <h3> <div> {{fav.orignalTitle}}</div></h3>
+          
+           <div *ngIf="fav.posterPath !=null; else default">
+  <img class="card-img-top" src="{{fav.posterPath}}" class="img-thumbnail img-fluid img"></div>
+  <ng-template #default>
+        <img src="./assets/images.png" class="img-thumbnail img-fluid img" ></ng-template>
+  
+        <div>Release Date: {{fav.releaseDate}}</div>
+ 
+        <button  class="btn btn-sm" (click) ="delete(fav)">Remove from favourites</button>
+ 
+ 
+ 
+          <small>Review: {{fav.review}}</small>
+  
+            <input type="text" #review placeholder= "type here to add review">
+         
+            <button  class="btn btn-sm" (click) ="addReview(fav,review.value)">Add Review</button>
+
+  
+       
+        
+        
+</div>
+<br>
+    </div>
+  </div>
+</div>

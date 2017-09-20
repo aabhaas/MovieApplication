@@ -1,0 +1,22 @@
+
+
+    <div class= "container" *ngIf="abc">
+        <div class="row">
+               
+        <div class= "col-sm-4 popular" *ngFor = "let display of abc.results | paginate: {itemsPerPage:6,currentPage:p}">        
+             <b>    <div> {{display.title}}</div></b>                          
+                       <div class= "card"> 
+                            <div *ngIf="display.poster_path !=null; else default"> 
+                        <img class="card-img-top"  class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{display.poster_path}}" />   
+                            </div>            
+                <ng-template #default>
+        <img src="../assets/images.png" class="img-thumbnail img-fluid img" ></ng-template>
+                        <p class = "lead"> Release date {{display.release_date}}</p>
+                <button type="button" class="btn-btn danger" (click) ="addFav(display)">AddFav</button>
+            </div>            
+          <br>
+        </div>
+        </div>
+    <br>
+    <pagination-controls (pageChange)="p=$event" *ngIf="abc.results" align="center" ></pagination-controls>
+</div>

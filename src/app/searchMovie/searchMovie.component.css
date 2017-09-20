@@ -1,0 +1,21 @@
+.popular{
+    margin-top:100px;
+
+}
+[class*='col-']{
+    float: left;
+    padding-right:20px;
+    padding-bottom: 20px;
+
+}
+.col-1-4{
+    width:40%;
+}
+.card{
+    background-color:black;
+    color: white;
+}
+.pagination-controls{
+    position: fixed;
+    
+}
